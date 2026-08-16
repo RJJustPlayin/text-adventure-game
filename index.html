@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Football Legacy</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #202936 0%, #080b10 70%);
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.logo {
+    font-size: clamp(42px, 8vw, 75px);
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #9da8b7;
+    font-size: 18px;
+    letter-spacing: 2px;
+
+    margin-bottom: 45px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.menu-button {
+    width: 100%;
+
+    padding: 18px;
+
+    background: #151c26;
+
+    color: white;
+
+    border: 1px solid #354151;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        background 0.15s,
+        border-color 0.15s;
+}
+
+.menu-button:hover {
+    background: #222d3b;
+    border-color: #66778c;
+
+    transform: translateY(-2px);
+}
+
+.menu-button:active {
+    transform: translateY(0);
+}
+
+.footer {
+    margin-top: 50px;
+
+    color: #687586;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.version {
+    margin-top: 12px;
+
+    color: #465160;
+
+    font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        🏈 FOOTBALL LEGACY
+    </div>
+
+    <div class="subtitle">
+        ONE PLAYER. ONE CAREER. ONE LEGACY.
+    </div>
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="startCareer()">
+            START NEW CAREER
+        </button>
+
+        <button
+            class="menu-button"
+            onclick="loadCareer()">
+            LOAD CAREER
+        </button>
+
+        <button
+            class="menu-button"
+            onclick="settings()">
+            SETTINGS
+        </button>
+
+    </div>
+
+    <div class="footer">
+
+        HIGH SCHOOL → COLLEGE → NFL → RETIREMENT
+
+        <div class="version">
+            Football Legacy • Career Simulator
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function startCareer() {
+
+    alert("New Career — Coming Next");
+
+}
+
+function loadCareer() {
+
+    alert("Load Career — Coming Next");
+
+}
+
+function settings() {
+
+    alert("Settings — Coming Next");
+
+}
+
+</script>
+
+</body>
+</html>
