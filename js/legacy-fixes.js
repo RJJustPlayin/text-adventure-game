@@ -1,0 +1,1 @@
+(async()=>{try{const r=await fetch('https://raw.githubusercontent.com/RJJustPlayin/text-adventure-game/modularize-freshman-fix/js/legacy-fixes.js');const code=await r.text();(0,eval)(code)}catch(e){console.error('Football Legacy fixes failed to load',e)}})();
