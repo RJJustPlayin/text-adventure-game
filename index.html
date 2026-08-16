@@ -161,7 +161,191 @@ body {
 
 function startCareer() {
 
-    alert("New Career — Coming Next");
+    document.querySelector(".container").innerHTML = `
+
+        <div class="page-title">
+            CREATE YOUR PLAYER
+        </div>
+
+        <div class="subtitle">
+            Your career begins here.
+        </div>
+
+        <div class="creation-panel">
+
+            <h2>PLAYER INFORMATION</h2>
+
+            <label>First Name</label>
+            <input id="firstName" type="text" placeholder="First Name">
+
+            <label>Last Name</label>
+            <input id="lastName" type="text" placeholder="Last Name">
+
+            <label>Birthday</label>
+            <input id="birthday" type="date">
+
+            <label>Hometown</label>
+            <input id="hometown" type="text" placeholder="Hometown">
+
+            <label>State</label>
+
+            <select id="state">
+
+                <option value="">Select State</option>
+
+                <option>New York</option>
+                <option>California</option>
+                <option>Texas</option>
+                <option>Florida</option>
+                <option>Georgia</option>
+                <option>Ohio</option>
+                <option>Pennsylvania</option>
+                <option>Michigan</option>
+                <option>New Jersey</option>
+                <option>North Carolina</option>
+
+            </select>
+
+
+            <label>Handedness</label>
+
+            <select id="handedness">
+
+                <option value="Right">Right</option>
+                <option value="Left">Left</option>
+
+            </select>
+
+
+            <h2>PHYSICAL BUILD</h2>
+
+            <label>Height</label>
+
+            <input
+                id="height"
+                type="text"
+                placeholder="Example: 5'8"
+            >
+
+
+            <label>Weight</label>
+
+            <input
+                id="weight"
+                type="number"
+                placeholder="Weight in lbs"
+            >
+
+
+            <label>Jersey Number</label>
+
+            <input
+                id="jersey"
+                type="number"
+                min="0"
+                max="99"
+                placeholder="1"
+            >
+
+
+            <h2>POSITION</h2>
+
+            <select
+                id="position"
+                onchange="updatePosition()"
+            >
+
+                <option value="">Select Position</option>
+
+                <option>QB</option>
+                <option>RB</option>
+                <option>FB</option>
+                <option>WR</option>
+                <option>TE</option>
+
+                <option>OT</option>
+                <option>OG</option>
+                <option>C</option>
+
+                <option>EDGE</option>
+                <option>DT</option>
+
+                <option>Mike LB</option>
+                <option>Sam LB</option>
+                <option>Will LB</option>
+
+                <option>CB</option>
+                <option>FS</option>
+                <option>SS</option>
+
+                <option>K</option>
+                <option>P</option>
+
+                <option value="RANDOM">
+                    🎲 Random Position
+                </option>
+
+            </select>
+
+
+            <div id="archetypeBox">
+
+                <label>Archetype</label>
+
+                <select id="archetype">
+
+                    <option>
+                        Select a position first
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <h2>STARTING RATINGS</h2>
+
+            <div class="rating-box">
+
+                <div class="starting-overall">
+                    OVERALL
+                    <strong>60</strong>
+                </div>
+
+                <p>
+                    You have
+                    <strong>12</strong>
+                    attribute points to allocate.
+                </p>
+
+                <p class="small-text">
+                    Your archetype will provide a small
+                    starting boost.
+                </p>
+
+            </div>
+
+
+            <button
+                class="menu-button"
+                onclick="createPlayer()"
+            >
+                CREATE PLAYER
+            </button>
+
+
+            <button
+                class="back-button"
+                onclick="location.reload()"
+            >
+                ← BACK
+            </button>
+
+        </div>
+
+    `;
+
+}
 
 }
 
