@@ -5,271 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Football Legacy</title>
 <style>
-* { box-sizing: border-box; }
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, #202936 0%, #080b10 70%);
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.container { width: 90%; max-width: 700px; text-align: center; padding: 20px 0; }
-.logo { font-size: clamp(42px, 8vw, 75px); font-weight: 900; letter-spacing: 3px; margin-bottom: 5px; }
-.subtitle { color: #9da8b7; font-size: 18px; letter-spacing: 2px; margin-bottom: 30px; }
-.menu { display: flex; flex-direction: column; gap: 14px; }
-.menu-button {
-    width: 100%; padding: 18px; background: #151c26; color: white;
-    border: 1px solid #354151; border-radius: 8px; font-size: 18px;
-    font-weight: bold; cursor: pointer; transition: transform .15s, background .15s, border-color .15s;
-}
-.menu-button:hover { background: #222d3b; border-color: #66778c; transform: translateY(-2px); }
-.menu-button:active { transform: translateY(0); }
-.footer { margin-top: 40px; color: #687586; font-size: 13px; letter-spacing: 1px; }
-.version { margin-top: 12px; color: #465160; font-size: 12px; }
-.page-title { font-size: clamp(30px, 7vw, 48px); font-weight: 900; margin-bottom: 8px; }
-.creation-panel {
-    background: #151c26; border: 1px solid #354151; border-radius: 12px;
-    padding: 25px; text-align: left; max-height: 75vh; overflow-y: auto;
-}
-.creation-panel h2 { margin: 25px 0 15px; font-size: 16px; color: #dce3ec; border-bottom: 1px solid #303b49; padding-bottom: 8px; }
-.creation-panel h2:first-child { margin-top: 0; }
-.creation-panel label { display: block; margin-top: 13px; margin-bottom: 6px; color: #aeb8c6; font-size: 14px; }
-.creation-panel input, .creation-panel select {
-    width: 100%; padding: 12px; background: #0e141c; color: white;
-    border: 1px solid #394656; border-radius: 7px; font-size: 15px;
-}
-.creation-panel input:focus, .creation-panel select:focus { outline: none; border-color: #718197; }
-.creation-panel input[type="color"] { height: 48px; padding: 4px; cursor: pointer; }
-.rating-box { background: #0e141c; border: 1px solid #303b49; border-radius: 10px; padding: 18px; margin-top: 10px; }
-.starting-overall { display: flex; justify-content: space-between; align-items: center; font-size: 18px; }
-.starting-overall strong { font-size: 36px; }
-.small-text { color: #7f8b9b; font-size: 13px; }
-.back-button { width: 100%; padding: 13px; margin-top: 10px; background: transparent; border: 1px solid #394656; color: #aeb8c6; border-radius: 7px; cursor: pointer; }
-.back-button:hover { background: #222b38; color: white; }
-.random-box { background: #0e141c; border: 1px solid #303b49; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
-.random-status { color: #aeb8c6; font-size: 13px; margin-top: 8px; }
-.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.stat-card { background: #0e141c; border: 1px solid #303b49; border-radius: 8px; padding: 12px; }
-.stat-card span { display: block; color: #7f8b9b; font-size: 12px; margin-bottom: 4px; }
-.color-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-@media (max-width: 520px) { .color-row, .stat-grid { grid-template-columns: 1fr; } }
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:radial-gradient(circle at center,#202936 0%,#080b10 70%);color:white;font-family:Arial,Helvetica,sans-serif}.container{width:92%;max-width:760px;text-align:center;padding:20px 0}.logo{font-size:clamp(42px,8vw,75px);font-weight:900;letter-spacing:3px;margin-bottom:5px}.subtitle{color:#9da8b7;font-size:18px;letter-spacing:2px;margin-bottom:30px}.menu{display:flex;flex-direction:column;gap:14px}.menu-button{width:100%;padding:16px;background:#151c26;color:white;border:1px solid #354151;border-radius:8px;font-size:17px;font-weight:bold;cursor:pointer;transition:.15s}.menu-button:hover{background:#222d3b;border-color:#66778c;transform:translateY(-2px)}.menu-button:disabled{cursor:not-allowed;transform:none}.footer{margin-top:40px;color:#687586;font-size:13px;letter-spacing:1px}.version{margin-top:12px;color:#465160;font-size:12px}.page-title{font-size:clamp(30px,7vw,48px);font-weight:900;margin-bottom:8px}.creation-panel{background:#151c26;border:1px solid #354151;border-radius:12px;padding:25px;text-align:left;max-height:78vh;overflow-y:auto}.creation-panel h2{margin:25px 0 15px;font-size:16px;color:#dce3ec;border-bottom:1px solid #303b49;padding-bottom:8px}.creation-panel h2:first-child{margin-top:0}.creation-panel label{display:block;margin-top:13px;margin-bottom:6px;color:#aeb8c6;font-size:14px}.creation-panel input,.creation-panel select{width:100%;padding:12px;background:#0e141c;color:white;border:1px solid #394656;border-radius:7px;font-size:15px}.creation-panel input:focus,.creation-panel select:focus{outline:none;border-color:#718197}.creation-panel input[type=color]{height:48px;padding:4px;cursor:pointer}.rating-box,.random-box,.notice{background:#0e141c;border:1px solid #303b49;border-radius:10px;padding:16px;margin-top:10px}.starting-overall{display:flex;justify-content:space-between;align-items:center;font-size:18px}.starting-overall strong{font-size:36px}.small-text,.random-status{color:#7f8b9b;font-size:13px}.back-button{width:100%;padding:13px;margin-top:10px;background:transparent;border:1px solid #394656;color:#aeb8c6;border-radius:7px;cursor:pointer}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat-card{background:#0e141c;border:1px solid #303b49;border-radius:8px;padding:12px}.stat-card span{display:block;color:#7f8b9b;font-size:12px;margin-bottom:4px}.color-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.attribute-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.attribute-card{background:#0e141c;border:1px solid #303b49;border-radius:9px;padding:11px}.attribute-card strong{display:block;font-size:14px}.attribute-value{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.attribute-value b{font-size:20px}.plusminus{display:flex;gap:6px}.plusminus button{width:34px;height:32px;border:1px solid #475568;background:#182230;color:white;border-radius:6px;cursor:pointer;font-weight:bold}.plusminus button:disabled{opacity:.35;cursor:not-allowed}.progress{height:10px;background:#202a36;border-radius:99px;overflow:hidden;margin-top:10px}.progress div{height:100%;background:#d9e2ec}.energy{font-size:30px;font-weight:bold}.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.activity-card{background:#0e141c;border:1px solid #303b49;border-radius:9px;padding:13px}.activity-card h3{margin:0 0 6px;font-size:16px}.activity-card p{color:#9da8b7;font-size:13px;min-height:35px}.result{padding:12px;border-left:4px solid #d9e2ec;background:#111923;margin-top:10px}.highlight{color:#ff4040;font-weight:900}.warning{color:#ffb347}.success{color:#7ee787}.danger{color:#ff6b6b}@media(max-width:560px){.attribute-grid,.stat-grid,.activity-grid,.color-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="logo">🏈 FOOTBALL LEGACY</div>
-    <div class="subtitle">ONE PLAYER. ONE CAREER. ONE LEGACY.</div>
-    <div class="menu">
-        <button class="menu-button" onclick="startCareer()">START NEW CAREER</button>
-        <button class="menu-button" onclick="loadCareer()">LOAD CAREER</button>
-        <button class="menu-button" onclick="settings()">SETTINGS</button>
-    </div>
-    <div class="footer">HIGH SCHOOL → COLLEGE → NFL → RETIREMENT<div class="version">Football Legacy • Career Simulator</div></div>
-</div>
+<div class="container"><div class="logo">🏈 FOOTBALL LEGACY</div><div class="subtitle">ONE PLAYER. ONE CAREER. ONE LEGACY.</div><div class="menu"><button class="menu-button" onclick="startCareer()">START NEW CAREER</button><button class="menu-button" onclick="loadCareer()">LOAD CAREER</button><button class="menu-button" onclick="settings()">SETTINGS</button></div><div class="footer">HIGH SCHOOL → COLLEGE → NFL → RETIREMENT<div class="version">Football Legacy • Career Simulator</div></div></div>
 <script>
-const archetypes = {
-    QB:["Pocket Passer","Field General","Scrambler","Dual Threat"],
-    RB:["Power Back","Elusive Back","Receiving Back","Balanced Back"],
-    FB:["Blocking Back","Power Runner","Utility Back"],
-    WR:["Deep Threat","Route Technician","Possession Receiver","YAC Receiver"],
-    TE:["Vertical Threat","Blocking TE","Possession TE","Balanced TE"],
-    OT:["Pass Protector","Run Blocker","Athletic Tackle","Balanced Tackle"],
-    OG:["Power Guard","Pulling Guard","Pass Protector","Balanced Guard"],
-    C:["Power Center","Field General","Pass Protector","Balanced Center"],
-    EDGE:["Speed Rusher","Power Rusher","Run Defender","Complete Edge"],
-    DT:["Run Stuffer","Power Rusher","Interior Pass Rusher","Balanced DT"],
-    "Mike LB":["Run Stopper","Field General","Blitzing Linebacker","Balanced Mike"],
-    "Sam LB":["Edge Setter","Coverage Linebacker","Blitzer","Balanced Sam"],
-    "Will LB":["Coverage Specialist","Speed Linebacker","Blitzer","Balanced Will"],
-    CB:["Man Coverage","Zone Corner","Press Corner","Ball Hawk"],
-    FS:["Center Fielder","Ball Hawk","Zone Safety","Balanced Free Safety"],
-    SS:["Box Safety","Enforcer","Man Safety","Balanced Strong Safety"],
-    K:["Power Kicker","Accuracy Kicker","Clutch Kicker"],
-    P:["Power Punter","Precision Punter","Directional Punter"]
-};
-
-const schoolNames = ["Lincoln","Central","Jefferson","Roosevelt","Washington","Franklin","Westview","East Ridge","North Valley","Southside"];
-const mascots = ["Tigers","Eagles","Panthers","Bulldogs","Wolves","Falcons","Knights","Lions","Hawks","Raiders"];
-const cities = ["Buffalo","Rochester","Syracuse","Albany","New York City","Cleveland","Detroit","Columbus","Pittsburgh","Charlotte"];
-const stadiums = ["Memorial Stadium","Legacy Field","Victory Stadium","Tiger Stadium","Eagle Field","Warrior Stadium","Panther Park"];
-const coachFirstNames = ["James","Marcus","Derrick","Anthony","Michael","Robert","Daniel","Andre","Chris","Kevin"];
-const coachLastNames = ["Carter","Williams","Johnson","Davis","Thompson","Mitchell","Robinson","Bennett","Jackson","Miller"];
-const schemes = ["Balanced","Spread","Pro Style","Air Raid","Power Run","West Coast"];
-const philosophies = ["Player Development","Win Now","Discipline","Player Friendly","Tough Love","Analytics"];
-const personalities = ["Players' Coach","Demanding","Motivator","Quiet Leader","Old School","Innovator"];
-
-let careerData = {};
-let schoolRandomUses = 0;
-let coachRandomUses = 0;
-
-function startCareer() {
-    document.querySelector(".container").innerHTML = `
-        <div class="page-title">CREATE YOUR PLAYER</div>
-        <div class="subtitle">Your career begins here.</div>
-        <div class="creation-panel">
-            <h2>PLAYER INFORMATION</h2>
-            <label>First Name</label><input id="firstName" type="text" placeholder="First Name">
-            <label>Last Name</label><input id="lastName" type="text" placeholder="Last Name">
-            <label>Birthday</label><input id="birthday" type="date">
-            <label>Hometown</label><input id="hometown" type="text" placeholder="Hometown">
-            <label>State</label>
-            <select id="state"><option value="">Select State</option><option>New York</option><option>California</option><option>Texas</option><option>Florida</option><option>Georgia</option><option>Ohio</option><option>Pennsylvania</option><option>Michigan</option><option>New Jersey</option><option>North Carolina</option></select>
-            <label>Handedness</label><select id="handedness"><option>Right</option><option>Left</option></select>
-            <h2>PHYSICAL BUILD</h2>
-            <label>Height</label><input id="height" type="text" placeholder="Example: 5'8">
-            <label>Weight</label><input id="weight" type="number" min="1" max="500" placeholder="Weight in lbs">
-            <label>Jersey Number</label><input id="jersey" type="number" min="0" max="99" placeholder="1">
-            <h2>POSITION</h2>
-            <select id="position" onchange="updatePosition()">
-                <option value="">Select Position</option><option>QB</option><option>RB</option><option>FB</option><option>WR</option><option>TE</option><option>OT</option><option>OG</option><option>C</option><option>EDGE</option><option>DT</option><option>Mike LB</option><option>Sam LB</option><option>Will LB</option><option>CB</option><option>FS</option><option>SS</option><option>K</option><option>P</option><option value="RANDOM">🎲 Random Position</option>
-            </select>
-            <div id="archetypeBox"><label>Archetype</label><select id="archetype"><option>Select a position first</option></select></div>
-            <h2>STARTING RATINGS</h2>
-            <div class="rating-box"><div class="starting-overall">OVERALL <strong>60</strong></div><p>You have <strong>12</strong> attribute points to allocate.</p><p class="small-text">Your archetype provides a small starting boost. Every player begins at 60 OVR.</p></div>
-            <button class="menu-button" onclick="createPlayer()">CREATE PLAYER</button>
-            <button class="back-button" onclick="location.reload()">← BACK</button>
-        </div>`;
-}
-
-function updatePosition() {
-    const position = document.getElementById("position").value;
-    const select = document.getElementById("archetype");
-    select.innerHTML = "";
-    if (position === "RANDOM") {
-        const positions = Object.keys(archetypes);
-        document.getElementById("position").value = positions[Math.floor(Math.random()*positions.length)];
-        updatePosition();
-        return;
-    }
-    if (!archetypes[position]) { select.innerHTML = '<option>Select a position first</option>'; return; }
-    archetypes[position].forEach(a => { const option=document.createElement("option"); option.value=a; option.textContent=a; select.appendChild(option); });
-}
-
-function value(id) { return document.getElementById(id).value.trim(); }
-function pick(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
-function randomInt(min,max) { return Math.floor(Math.random()*(max-min+1))+min; }
-
-function createPlayer() {
-    const required = [["firstName","First Name"],["lastName","Last Name"],["birthday","Birthday"],["hometown","Hometown"],["state","State"],["height","Height"],["weight","Weight"],["jersey","Jersey Number"]];
-    const missing = required.filter(([id]) => !value(id)).map(([,label]) => label);
-    const position = value("position");
-    if (!position || position === "RANDOM") missing.push("Position");
-    if (!value("archetype") || value("archetype") === "Select a position first") missing.push("Archetype");
-    if (missing.length) { alert("Please complete: " + missing.join(", ")); return; }
-    const weight = Number(value("weight"));
-    if (weight < 1 || weight > 500) { alert("Weight must be between 1 and 500 lbs."); return; }
-    const jersey = Number(value("jersey"));
-    if (jersey < 0 || jersey > 99) { alert("Jersey number must be between 0 and 99."); return; }
-    careerData.player = {
-        firstName:value("firstName"), lastName:value("lastName"), birthday:value("birthday"), hometown:value("hometown"), state:value("state"), handedness:value("handedness"), height:value("height"), weight, jersey, position, archetype:value("archetype"), overall:60, attributePoints:12, classYear:"Freshman", league:"High School", level:"JV"
-    };
-    schoolRandomUses = 0;
-    coachRandomUses = 0;
-    renderSchoolCreation();
-}
-
-function renderSchoolCreation() {
-    document.querySelector(".container").innerHTML = `
-        <div class="page-title">CREATE YOUR SCHOOL</div>
-        <div class="subtitle">Build your high-school football program.</div>
-        <div class="creation-panel">
-            <div class="random-box"><button class="menu-button" onclick="randomSchool()">🎲 RANDOMLY GENERATE SCHOOL</button><div id="schoolRandomStatus" class="random-status">You get 3 regenerations after the initial random generation.</div></div>
-            <h2>SCHOOL INFORMATION</h2>
-            <label>School Name</label><input id="schoolName" placeholder="Example: Lincoln High School">
-            <label>City</label><input id="schoolCity" placeholder="City">
-            <label>State</label><input id="schoolState" placeholder="State">
-            <label>Mascot</label><input id="schoolMascot" placeholder="Tigers">
-            <label>Stadium Name</label><input id="stadiumName" placeholder="Memorial Stadium">
-            <h2>SCHOOL COLORS</h2>
-            <div class="color-row"><div><label>Primary</label><input id="primaryColor" type="color" value="#1e3a5f"></div><div><label>Secondary</label><input id="secondaryColor" type="color" value="#ffffff"></div><div><label>Accent</label><input id="accentColor" type="color" value="#d4af37"></div></div>
-            <h2>PROGRAM</h2>
-            <label>School Strength</label><select id="schoolStrength"><option value="1">⭐ Rebuilding</option><option value="2">⭐⭐ Developing</option><option value="3" selected>⭐⭐⭐ Competitive</option><option value="4">⭐⭐⭐⭐ State Contender</option><option value="5">⭐⭐⭐⭐⭐ National Powerhouse</option></select>
-            <label>Rival School</label><input id="rivalSchool" placeholder="Optional fictional rival">
-            <button class="menu-button" onclick="saveSchool()">CONTINUE TO COACH</button>
-            <button class="back-button" onclick="startCareer()">← BACK TO PLAYER</button>
-        </div>`;
-}
-
-function randomSchool() {
-    const school = { name:pick(schoolNames)+" High School", city:pick(cities), state:pick(["New York","Ohio","Michigan","Pennsylvania","North Carolina","Georgia","Florida","Texas"]), mascot:pick(mascots), stadium:pick(stadiums), primary:"#"+Math.floor(Math.random()*16777215).toString(16).padStart(6,"0"), secondary:"#"+Math.floor(Math.random()*16777215).toString(16).padStart(6,"0"), accent:"#"+Math.floor(Math.random()*16777215).toString(16).padStart(6,"0"), strength:randomInt(1,5), rival:pick(schoolNames)+" High School" };
-    document.getElementById("schoolName").value=school.name; document.getElementById("schoolCity").value=school.city; document.getElementById("schoolState").value=school.state; document.getElementById("schoolMascot").value=school.mascot; document.getElementById("stadiumName").value=school.stadium; document.getElementById("primaryColor").value=school.primary; document.getElementById("secondaryColor").value=school.secondary; document.getElementById("accentColor").value=school.accent; document.getElementById("schoolStrength").value=school.strength; document.getElementById("rivalSchool").value=school.rival;
-    schoolRandomUses++;
-    const remaining=Math.max(0,3-schoolRandomUses);
-    const button=document.querySelector('.random-box .menu-button');
-    button.textContent=remaining ? "🔄 REGENERATE SCHOOL" : "🎲 RANDOM GENERATION USED";
-    button.disabled=remaining===0;
-    button.style.opacity=remaining===0 ? ".5" : "1";
-    document.getElementById("schoolRandomStatus").textContent = remaining+" regeneration"+(remaining===1?"":"s")+" remaining.";
-}
-
-function saveSchool() {
-    const required=[["schoolName","School Name"],["schoolCity","City"],["schoolState","State"],["schoolMascot","Mascot"],["stadiumName","Stadium Name"]];
-    const missing=required.filter(([id])=>!value(id)).map(([,label])=>label);
-    if(missing.length){alert("Please complete: "+missing.join(", "));return;}
-    careerData.school={name:value("schoolName"),city:value("schoolCity"),state:value("schoolState"),mascot:value("schoolMascot"),stadium:value("stadiumName"),primary:document.getElementById("primaryColor").value,secondary:document.getElementById("secondaryColor").value,accent:document.getElementById("accentColor").value,strength:Number(value("schoolStrength")),rival:value("rivalSchool")||"None"};
-    renderCoachCreation();
-}
-
-function renderCoachCreation() {
-    document.querySelector(".container").innerHTML = `
-        <div class="page-title">CREATE YOUR COACH</div>
-        <div class="subtitle">Your coach can shape your entire high-school career.</div>
-        <div class="creation-panel">
-            <div class="random-box"><button class="menu-button" onclick="randomCoach()">🎲 RANDOMLY GENERATE COACH</button><div id="coachRandomStatus" class="random-status">You get 3 regenerations after the initial random generation.</div></div>
-            <h2>COACH INFORMATION</h2>
-            <label>First Name</label><input id="coachFirst" placeholder="First Name">
-            <label>Last Name</label><input id="coachLast" placeholder="Last Name">
-            <label>Age</label><input id="coachAge" type="number" min="25" max="80" placeholder="45">
-            <label>Offensive / Defensive Scheme</label><select id="coachScheme">${schemes.map(x=>`<option>${x}</option>`).join("")}</select>
-            <label>Coaching Philosophy</label><select id="coachPhilosophy">${philosophies.map(x=>`<option>${x}</option>`).join("")}</select>
-            <label>Player Development</label><select id="coachDevelopment"><option value="1">⭐</option><option value="2">⭐⭐</option><option value="3" selected>⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option><option value="5">⭐⭐⭐⭐⭐</option></select>
-            <label>Strictness</label><select id="coachStrictness"><option value="1">Low</option><option value="2">Moderate</option><option value="3" selected>High</option><option value="4">Very High</option><option value="5">Extreme</option></select>
-            <label>Personality</label><select id="coachPersonality">${personalities.map(x=>`<option>${x}</option>`).join("")}</select>
-            <button class="menu-button" onclick="saveCoach()">START HIGH SCHOOL CAREER</button>
-            <button class="back-button" onclick="renderSchoolCreation()">← BACK TO SCHOOL</button>
-        </div>`;
-}
-
-function randomCoach() {
-    document.getElementById("coachFirst").value=pick(coachFirstNames); document.getElementById("coachLast").value=pick(coachLastNames); document.getElementById("coachAge").value=randomInt(30,58); document.getElementById("coachScheme").value=pick(schemes); document.getElementById("coachPhilosophy").value=pick(philosophies); document.getElementById("coachDevelopment").value=randomInt(1,5); document.getElementById("coachStrictness").value=randomInt(1,5); document.getElementById("coachPersonality").value=pick(personalities);
-    coachRandomUses++;
-    const remaining=Math.max(0,3-coachRandomUses); const button=document.querySelector('.random-box .menu-button'); button.textContent=remaining ? "🔄 REGENERATE COACH" : "🎲 RANDOM GENERATION USED"; button.disabled=remaining===0; button.style.opacity=remaining===0 ? ".5" : "1"; document.getElementById("coachRandomStatus").textContent=remaining+" regeneration"+(remaining===1?"":"s")+" remaining.";
-}
-
-function saveCoach() {
-    const required=[["coachFirst","First Name"],["coachLast","Last Name"],["coachAge","Age"]]; const missing=required.filter(([id])=>!value(id)).map(([,label])=>label); if(missing.length){alert("Please complete: "+missing.join(", "));return;}
-    const age=Number(value("coachAge")); if(age<25||age>80){alert("Coach age must be between 25 and 80.");return;}
-    careerData.coach={firstName:value("coachFirst"),lastName:value("coachLast"),age,scheme:value("coachScheme"),philosophy:value("coachPhilosophy"),development:Number(value("coachDevelopment")),strictness:Number(value("coachStrictness")),personality:value("coachPersonality")};
-    careerData.highSchool={year:1,classYear:"Freshman",level:"JV",gamesPlayed:0,varsityGames:0,gpa:100,confidence:50,potentialPoints:0,achievements:[],awards:[],records:[],snapCounts:0,seasonStats:{}};
-    localStorage.setItem("footballLegacyCareer",JSON.stringify(careerData));
-    renderCareerHome();
-}
-
-function renderCareerHome() {
-    const p=careerData.player,s=careerData.school,c=careerData.coach;
-    document.querySelector(".container").innerHTML=`
-        <div class="page-title">${p.firstName} ${p.lastName}</div>
-        <div class="subtitle">${p.classYear} • ${p.position} • ${s.name}</div>
-        <div class="creation-panel">
-            <div class="rating-box"><div class="starting-overall">OVERALL <strong>60</strong></div><p>${p.archetype} • ${p.height} • ${p.weight} lbs • #${p.jersey}</p></div>
-            <h2>YOUR PROGRAM</h2>
-            <div class="stat-grid"><div class="stat-card"><span>SCHOOL</span>${s.name}</div><div class="stat-card"><span>MASCOT</span>${s.mascot}</div><div class="stat-card"><span>LEVEL</span>Freshman JV</div><div class="stat-card"><span>COACH</span>${c.firstName} ${c.lastName}</div></div>
-            <h2>CAREER STATUS</h2>
-            <div class="stat-grid"><div class="stat-card"><span>GAMES</span>0</div><div class="stat-card"><span>VARSITY GAMES</span>0</div><div class="stat-card"><span>GPA</span>100</div><div class="stat-card"><span>POTENTIAL POINTS</span>0</div></div>
-            <button class="menu-button" onclick="alert('The high-school season engine is next. Your player, school, and coach are saved.')">CONTINUE</button>
-            <button class="back-button" onclick="startCareer()">← RESTART CREATION</button>
-        </div>`;
-}
-
-function loadCareer(){
-    const saved=localStorage.getItem("footballLegacyCareer");
-    if(!saved){alert("No saved career found yet.");return;}
-    careerData=JSON.parse(saved); renderCareerHome();
-}
-function settings(){alert("Settings will include play-by-play highlight color and other career options.");}
+const archetypes={QB:["Pocket Passer","Field General","Scrambler","Dual Threat"],RB:["Power Back","Elusive Back","Receiving Back","Balanced Back"],FB:["Blocking Back","Power Runner","Utility Back"],WR:["Deep Threat","Route Technician","Possession Receiver","YAC Receiver"],TE:["Vertical Threat","Blocking TE","Possession TE","Balanced TE"],OT:["Pass Protector","Run Blocker","Athletic Tackle","Balanced Tackle"],OG:["Power Guard","Pulling Guard","Pass Protector","Balanced Guard"],C:["Power Center","Field General","Pass Protector","Balanced Center"],EDGE:["Speed Rusher","Power Rusher","Run Defender","Complete Edge"],DT:["Run Stuffer","Power Rusher","Interior Pass Rusher","Balanced DT"],"Mike LB":["Run Stopper","Field General","Blitzing Linebacker","Balanced Mike"],"Sam LB":["Edge Setter","Coverage Linebacker","Blitzer","Balanced Sam"],"Will LB":["Coverage Specialist","Speed Linebacker","Blitzer","Balanced Will"],CB:["Man Coverage","Zone Corner","Press Corner","Ball Hawk"],FS:["Center Fielder","Ball Hawk","Zone Safety","Balanced Free Safety"],SS:["Box Safety","Enforcer","Man Safety","Balanced Strong Safety"],K:["Power Kicker","Accuracy Kicker","Clutch Kicker"],P:["Power Punter","Precision Punter","Directional Punter"]};
+const attributeNames=["Speed","Acceleration","Agility","Strength","Power","Jumping","Stamina","Awareness","Football IQ","Technique","Toughness","Discipline"];
+const archetypeBoosts={"Power Back":["Strength","Power","Toughness"],"Elusive Back":["Agility","Acceleration","Speed"],"Receiving Back":["Hands","Agility","Speed"],"Balanced Back":["Awareness","Agility","Strength"],"Deep Threat":["Speed","Acceleration","Jumping"],"Route Technician":["Technique","Agility","Football IQ"],"Possession Receiver":["Hands","Technique","Toughness"],"YAC Receiver":["Agility","Speed","Power"],"Pocket Passer":["Awareness","Football IQ","Technique"],"Field General":["Football IQ","Awareness","Discipline"],"Scrambler":["Speed","Acceleration","Agility"],"Dual Threat":["Speed","Football IQ","Agility"],"Blocking Back":["Strength","Power","Toughness"],"Power Runner":["Power","Strength","Toughness"],"Utility Back":["Awareness","Technique","Agility"],"Vertical Threat":["Speed","Jumping","Acceleration"],"Blocking TE":["Strength","Power","Technique"],"Possession TE":["Hands","Toughness","Technique"],"Balanced TE":["Awareness","Strength","Technique"],"Pass Protector":["Technique","Strength","Awareness"],"Run Blocker":["Strength","Power","Technique"],"Athletic Tackle":["Agility","Acceleration","Technique"],"Balanced Tackle":["Strength","Awareness","Technique"],"Power Guard":["Strength","Power","Toughness"],"Pulling Guard":["Agility","Acceleration","Power"],"Balanced Guard":["Strength","Technique","Awareness"],"Power Center":["Strength","Power","Technique"],"Pass Protector":["Technique","Awareness","Strength"],"Balanced Center":["Awareness","Technique","Toughness"],"Speed Rusher":["Speed","Acceleration","Agility"],"Power Rusher":["Power","Strength","Toughness"],"Run Defender":["Strength","Toughness","Awareness"],"Complete Edge":["Technique","Speed","Strength"],"Run Stuffer":["Strength","Power","Toughness"],"Interior Pass Rusher":["Power","Technique","Acceleration"],"Balanced DT":["Strength","Awareness","Technique"],"Run Stopper":["Strength","Toughness","Awareness"],"Blitzing Linebacker":["Acceleration","Speed","Football IQ"],"Balanced Mike":["Awareness","Toughness","Technique"],"Edge Setter":["Strength","Power","Toughness"],"Coverage Linebacker":["Speed","Agility","Awareness"],"Blitzer":["Acceleration","Speed","Technique"],"Balanced Sam":["Awareness","Speed","Technique"],"Coverage Specialist":["Speed","Agility","Awareness"],"Speed Linebacker":["Speed","Acceleration","Agility"],"Balanced Will":["Awareness","Technique","Speed"],"Man Coverage":["Speed","Agility","Technique"],"Zone Corner":["Awareness","Football IQ","Speed"],"Press Corner":["Strength","Technique","Toughness"],"Ball Hawk":["Awareness","Jumping","Speed"],"Center Fielder":["Speed","Awareness","Jumping"],"Zone Safety":["Awareness","Football IQ","Speed"],"Balanced Free Safety":["Awareness","Technique","Speed"],"Box Safety":["Strength","Toughness","Power"],"Enforcer":["Toughness","Strength","Power"],"Man Safety":["Speed","Agility","Technique"],"Balanced Strong Safety":["Awareness","Toughness","Technique"],"Power Kicker":["Power","Strength","Technique"],"Accuracy Kicker":["Technique","Discipline","Football IQ"],"Clutch Kicker":["Discipline","Technique","Toughness"],"Power Punter":["Power","Technique","Strength"],"Precision Punter":["Technique","Discipline","Football IQ"],"Directional Punter":["Technique","Awareness","Football IQ"]};
+const schoolNames=["Lincoln","Central","Jefferson","Roosevelt","Washington","Franklin","Westview","East Ridge","North Valley","Southside"],mascots=["Tigers","Eagles","Panthers","Bulldogs","Wolves","Falcons","Knights","Lions","Hawks","Raiders"],cities=["Buffalo","Rochester","Syracuse","Albany","Cleveland","Detroit","Columbus","Pittsburgh","Charlotte"],stadiums=["Memorial Stadium","Legacy Field","Victory Stadium","Tiger Stadium","Eagle Field","Warrior Stadium","Panther Park"],coachFirstNames=["James","Marcus","Derrick","Anthony","Michael","Robert","Daniel","Andre","Chris","Kevin"],coachLastNames=["Carter","Williams","Johnson","Davis","Thompson","Mitchell","Robinson","Bennett","Jackson","Miller"],schemes=["Balanced","Spread","Pro Style","Air Raid","Power Run","West Coast"],philosophies=["Player Development","Win Now","Discipline","Player Friendly","Tough Love","Analytics"],personalities=["Players' Coach","Demanding","Motivator","Quiet Leader","Old School","Innovator"];
+let careerData={},schoolRandomUses=0,coachRandomUses=0;
+function pick(a){return a[Math.floor(Math.random()*a.length)]}function randomInt(a,b){return Math.floor(Math.random()*(b-a+1))+a}function val(id){const e=document.getElementById(id);return e?e.value.trim():""}
+function startCareer(){document.querySelector('.container').innerHTML=`<div class="page-title">CREATE YOUR PLAYER</div><div class="subtitle">Your career begins here.</div><div class="creation-panel"><h2>PLAYER INFORMATION</h2><label>First Name</label><input id="firstName" placeholder="First Name"><label>Last Name</label><input id="lastName" placeholder="Last Name"><label>Birthday</label><input id="birthday" type="date"><label>Hometown</label><input id="hometown" placeholder="Hometown"><label>State</label><select id="state"><option value="">Select State</option><option>New York</option><option>California</option><option>Texas</option><option>Florida</option><option>Georgia</option><option>Ohio</option><option>Pennsylvania</option><option>Michigan</option><option>New Jersey</option><option>North Carolina</option></select><label>Handedness</label><select id="handedness"><option>Right</option><option>Left</option><option>Switch Passer</option></select><h2>PHYSICAL BUILD</h2><label>Height</label><input id="height" placeholder="Example: 5'8"><label>Weight</label><input id="weight" type="number" min="1" max="500" placeholder="Weight in lbs"><label>Jersey Number</label><input id="jersey" type="number" min="0" max="99" placeholder="1"><h2>POSITION</h2><select id="position" onchange="updatePosition()"><option value="">Select Position</option>${Object.keys(archetypes).map(x=>`<option>${x}</option>`).join('')}<option value="RANDOM">🎲 Random Position</option></select><label>Archetype</label><select id="archetype"><option>Select a position first</option></select><div class="rating-box"><div class="starting-overall">OVERALL <strong>60</strong></div><p>Every player begins at 60 OVR.</p><p class="small-text">Your archetype will slightly influence your starting attributes. Your next screen is where you personally allocate 12 attribute points.</p></div><button class="menu-button" onclick="createPlayer()">CONTINUE TO ATTRIBUTES</button><button class="back-button" onclick="location.reload()">← BACK</button></div>`}
+function updatePosition(){let p=val('position'),s=document.getElementById('archetype');if(p==='RANDOM'){p=pick(Object.keys(archetypes));document.getElementById('position').value=p} s.innerHTML=p&&archetypes[p]?archetypes[p].map(a=>`<option>${a}</option>`).join(''):'<option>Select a position first</option>'}
+function createPlayer(){const req=[['firstName','First Name'],['lastName','Last Name'],['birthday','Birthday'],['hometown','Hometown'],['state','State'],['height','Height'],['weight','Weight'],['jersey','Jersey Number']],missing=req.filter(x=>!val(x[0])).map(x=>x[1]);if(!val('position')||val('position')==='RANDOM')missing.push('Position');if(!val('archetype')||val('archetype')==='Select a position first')missing.push('Archetype');if(missing.length){alert('Please complete: '+missing.join(', '));return}const w=Number(val('weight')),j=Number(val('jersey'));if(w<1||w>500){alert('Weight must be between 1 and 500 lbs.');return}if(j<0||j>99){alert('Jersey number must be between 0 and 99.');return}careerData.player={firstName:val('firstName'),lastName:val('lastName'),birthday:val('birthday'),hometown:val('hometown'),state:val('state'),handedness:val('handedness'),height:val('height'),weight:w,jersey:j,position:val('position'),archetype:val('archetype'),overall:60,attributePoints:12,classYear:'Freshman',league:'High School',level:'JV'};renderAttributeAllocation()}
+function renderAttributeAllocation(){const attrs={};attributeNames.forEach(a=>attrs[a]=50);const boosts=archetypeBoosts[careerData.player.archetype]||[];boosts.forEach(a=>{if(attrs[a]!==undefined)attrs[a]+=3});careerData.pendingAttributes=attrs;careerData.pendingSpent=0;document.querySelector('.container').innerHTML=`<div class="page-title">ALLOCATE YOUR ATTRIBUTES</div><div class="subtitle">12 points. You decide where they go.</div><div class="creation-panel"><div class="rating-box"><div class="starting-overall">REMAINING <strong id="pointsLeft">12</strong></div><p>Your player stays at <strong>60 OVR</strong>. These points shape how that 60 is distributed.</p><p class="small-text">Archetype boosts are already applied. You cannot change these points after starting the career.</p></div><h2>ATTRIBUTES</h2><div class="attribute-grid">${attributeNames.map(a=>`<div class="attribute-card"><strong>${a}</strong><div class="attribute-value"><b id="attr-${a.replaceAll(' ','-')}">${attrs[a]}</b><div class="plusminus"><button onclick="changeAttribute('${a}',-1)">−</button><button onclick="changeAttribute('${a}',1)">+</button></div></div></div>`).join('')}</div><div class="notice"><b>Position:</b> ${careerData.player.position} • <b>Archetype:</b> ${careerData.player.archetype}</div><button class="menu-button" onclick="confirmAttributes()">CONFIRM ATTRIBUTES</button><button class="back-button" onclick="startCareer()">← BACK TO PLAYER</button></div>`}
+function changeAttribute(name,delta){let a=careerData.pendingAttributes;if(delta>0&&careerData.pendingSpent>=12)return;if(delta<0&&a[name]<=50+(archetypeBoosts[careerData.player.archetype]||[]).filter(x=>x===name).length*3)return;a[name]=Math.max(0,Math.min(99,a[name]+delta));careerData.pendingSpent+=delta;document.getElementById('pointsLeft').textContent=12-careerData.pendingSpent;document.getElementById('attr-'+name.replaceAll(' ','-')).textContent=a[name]}
+function confirmAttributes(){if(careerData.pendingSpent!==12){alert('You still have '+(12-careerData.pendingSpent)+' attribute points to allocate.');return}careerData.player.attributes={...careerData.pendingAttributes};delete careerData.pendingAttributes;delete careerData.pendingSpent;schoolRandomUses=0;coachRandomUses=0;renderSchoolCreation()}
+function renderSchoolCreation(){document.querySelector('.container').innerHTML=`<div class="page-title">CREATE YOUR SCHOOL</div><div class="subtitle">Build your high-school football program.</div><div class="creation-panel"><div class="random-box"><button class="menu-button" onclick="randomSchool()">🎲 RANDOMLY GENERATE SCHOOL</button><div id="schoolRandomStatus" class="random-status">Initial generation + 3 regenerations.</div></div><h2>SCHOOL INFORMATION</h2><label>School Name</label><input id="schoolName" placeholder="Lincoln High School"><label>City</label><input id="schoolCity" placeholder="City"><label>State</label><input id="schoolState" placeholder="State"><label>Mascot</label><input id="schoolMascot" placeholder="Tigers"><label>Stadium Name</label><input id="stadiumName" placeholder="Memorial Stadium"><h2>SCHOOL COLORS</h2><div class="color-row"><div><label>Primary</label><input id="primaryColor" type="color" value="#1e3a5f"></div><div><label>Secondary</label><input id="secondaryColor" type="color" value="#ffffff"></div><div><label>Accent</label><input id="accentColor" type="color" value="#d4af37"></div></div><h2>PROGRAM</h2><label>School Strength</label><select id="schoolStrength"><option value="1">⭐ Rebuilding</option><option value="2">⭐⭐ Developing</option><option value="3" selected>⭐⭐⭐ Competitive</option><option value="4">⭐⭐⭐⭐ State Contender</option><option value="5">⭐⭐⭐⭐⭐ National Powerhouse</option></select><label>Rival School</label><input id="rivalSchool" placeholder="Optional fictional rival"><button class="menu-button" onclick="saveSchool()">CONTINUE TO COACH</button><button class="back-button" onclick="renderAttributeAllocation()">← BACK TO ATTRIBUTES</button></div>`}
+function randomSchool(){const hex=()=>'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');const school={name:pick(schoolNames)+' High School',city:pick(cities),state:pick(['New York','Ohio','Michigan','Pennsylvania','North Carolina','Georgia','Florida','Texas']),mascot:pick(mascots),stadium:pick(stadiums),primary:hex(),secondary:hex(),accent:hex(),strength:randomInt(1,5),rival:pick(schoolNames)+' High School'};['schoolName','schoolCity','schoolState','schoolMascot','stadiumName','primaryColor','secondaryColor','accentColor','schoolStrength','rivalSchool'].forEach((id,i)=>document.getElementById(id).value=Object.values(school)[i]);schoolRandomUses++;const r=Math.max(0,3-schoolRandomUses),b=document.querySelector('.random-box .menu-button');b.textContent=r?'🔄 REGENERATE SCHOOL':'🎲 RANDOM GENERATION USED';b.disabled=!r;document.getElementById('schoolRandomStatus').textContent=r+' regeneration'+(r===1?'':'s')+' remaining.'}
+function saveSchool(){const req=[['schoolName','School Name'],['schoolCity','City'],['schoolState','State'],['schoolMascot','Mascot'],['stadiumName','Stadium Name']],missing=req.filter(x=>!val(x[0])).map(x=>x[1]);if(missing.length){alert('Please complete: '+missing.join(', '));return}careerData.school={name:val('schoolName'),city:val('schoolCity'),state:val('schoolState'),mascot:val('schoolMascot'),stadium:val('stadiumName'),primary:document.getElementById('primaryColor').value,secondary:document.getElementById('secondaryColor').value,accent:document.getElementById('accentColor').value,strength:Number(val('schoolStrength')),rival:val('rivalSchool')||'None'};renderCoachCreation()}
+function renderCoachCreation(){document.querySelector('.container').innerHTML=`<div class="page-title">CREATE YOUR COACH</div><div class="subtitle">Your coach can shape your entire high-school career.</div><div class="creation-panel"><div class="random-box"><button class="menu-button" onclick="randomCoach()">🎲 RANDOMLY GENERATE COACH</button><div id="coachRandomStatus" class="random-status">Initial generation + 3 regenerations.</div></div><h2>COACH INFORMATION</h2><label>First Name</label><input id="coachFirst" placeholder="First Name"><label>Last Name</label><input id="coachLast" placeholder="Last Name"><label>Age</label><input id="coachAge" type="number" min="25" max="80" placeholder="45"><label>Scheme</label><select id="coachScheme">${schemes.map(x=>`<option>${x}</option>`).join('')}</select><label>Coaching Philosophy</label><select id="coachPhilosophy">${philosophies.map(x=>`<option>${x}</option>`).join('')}</select><label>Player Development</label><select id="coachDevelopment"><option value="1">⭐</option><option value="2">⭐⭐</option><option value="3" selected>⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option><option value="5">⭐⭐⭐⭐⭐</option></select><label>Strictness</label><select id="coachStrictness"><option value="1">Low</option><option value="2">Moderate</option><option value="3" selected>High</option><option value="4">Very High</option><option value="5">Extreme</option></select><label>Personality</label><select id="coachPersonality">${personalities.map(x=>`<option>${x}</option>`).join('')}</select><button class="menu-button" onclick="saveCoach()">START HIGH SCHOOL CAREER</button><button class="back-button" onclick="renderSchoolCreation()">← BACK TO SCHOOL</button></div>`}
+function randomCoach(){document.getElementById('coachFirst').value=pick(coachFirstNames);document.getElementById('coachLast').value=pick(coachLastNames);document.getElementById('coachAge').value=randomInt(30,58);document.getElementById('coachScheme').value=pick(schemes);document.getElementById('coachPhilosophy').value=pick(philosophies);document.getElementById('coachDevelopment').value=randomInt(1,5);document.getElementById('coachStrictness').value=randomInt(1,5);document.getElementById('coachPersonality').value=pick(personalities);coachRandomUses++;const r=Math.max(0,3-coachRandomUses),b=document.querySelector('.random-box .menu-button');b.textContent=r?'🔄 REGENERATE COACH':'🎲 RANDOM GENERATION USED';b.disabled=!r;document.getElementById('coachRandomStatus').textContent=r+' regeneration'+(r===1?'':'s')+' remaining.'}
+function saveCoach(){const req=[['coachFirst','First Name'],['coachLast','Last Name'],['coachAge','Age']],missing=req.filter(x=>!val(x[0])).map(x=>x[1]);if(missing.length){alert('Please complete: '+missing.join(', '));return}const age=Number(val('coachAge'));if(age<25||age>80){alert('Coach age must be between 25 and 80.');return}careerData.coach={firstName:val('coachFirst'),lastName:val('coachLast'),age,scheme:val('coachScheme'),philosophy:val('coachPhilosophy'),development:Number(val('coachDevelopment')),strictness:Number(val('coachStrictness')),personality:val('coachPersonality')};careerData.highSchool={year:1,classYear:'Freshman',level:'JV',week:0,gamesPlayed:0,varsityGames:0,snapCounts:0,gpa:100,confidence:50,coachTrust:50,energy:100,film:0,potentialPoints:0,attributePoints:0,fallCampScore:0,fallCampComplete:false,varsityPromotion:false,seasonComplete:false,careerAlive:true,seasonStats:{},achievements:[],awards:[],records:[]};localStorage.setItem('footballLegacyCareer',JSON.stringify(careerData));renderFallCamp()}
+function renderFallCamp(){document.querySelector('.container').innerHTML=`<div class="page-title">FALL CAMP</div><div class="subtitle">Earn your role. Your career starts now.</div><div class="creation-panel"><div class="rating-box"><div class="starting-overall">YOUR OVR <strong>60</strong></div><p><b>${careerData.player.position}</b> • ${careerData.player.archetype} • Freshman</p><p class="small-text">JV is temporary. Perform well enough and you can earn varsity during camp. If you don't move up, you must play the full JV season.</p></div><h2>CAMP EVALUATION</h2><div class="stat-grid"><div class="stat-card"><span>COACH TRUST</span><b id="campTrust">${careerData.highSchool.coachTrust}</b>/100</div><div class="stat-card"><span>FOOTBALL IQ</span><b>${careerData.player.attributes['Football IQ']}</b></div><div class="stat-card"><span>TRAINING ENERGY</span><b id="campEnergy">100</b>/100</div><div class="stat-card"><span>CAMP SCORE</span><b id="campScore">0</b>/100</div></div><h2>DEVELOPMENT</h2><div class="activity-grid"><div class="activity-card"><h3>🎥 Film Room</h3><p>Study tendencies and prepare for your role.</p><button class="menu-button" onclick="campActivity('film')">STUDY FILM • 20</button></div><div class="activity-card"><h3>🏈 Field Work</h3><p>Position-specific drills with a chance for an attribute boost.</p><button class="menu-button" onclick="campActivity('field')">FIELD WORK • 30</button></div><div class="activity-card"><h3>🏋️ Weight Room</h3><p>Build physical traits with a random development chance.</p><button class="menu-button" onclick="campActivity('weight')">LIFT • 30</button></div><div class="activity-card"><h3>🧠 Recovery</h3><p>Restore energy and reduce fatigue.</p><button class="menu-button" onclick="campActivity('recovery')">RECOVER • 15</button></div></div><div id="campLog" class="result">Use your 100 weekly energy strategically. You can earn training boosts, coach trust, and camp points.</div><button class="menu-button" onclick="finishCamp()">FINISH FALL CAMP</button></div>`}
+function campActivity(type){const h=careerData.highSchool;if(h.energy<=0){alert('You are out of energy.');return}const costs={film:20,field:30,weight:30,recovery:15};if(h.energy<costs[type]){alert('Not enough energy.');return}h.energy-=costs[type];let msg='';if(type==='film'){h.coachTrust+=randomInt(2,6);h.fallCampScore+=randomInt(5,12);msg='You studied the opponent and improved your preparation. Coach Trust increased.'}else if(type==='field'){const gain=Math.random()<.65?1:0;h.coachTrust+=randomInt(1,4);h.fallCampScore+=randomInt(6,15);if(gain){const k=pick(['Speed','Acceleration','Agility','Technique','Awareness']);careerData.player.attributes[k]=Math.min(99,careerData.player.attributes[k]+1);msg=`Great session. <span class="success">${k} +1</span>`}else msg='Solid field session. No attribute breakthrough this time.'}else if(type==='weight'){const gain=Math.random()<.6?1:0;h.fallCampScore+=randomInt(5,14);if(gain){const k=pick(['Strength','Power','Toughness','Stamina']);careerData.player.attributes[k]=Math.min(99,careerData.player.attributes[k]+1);msg=`Strong workout. <span class="success">${k} +1</span>`}else msg='Good work, but no attribute breakthrough this session.'}else{h.energy=Math.min(100,h.energy+20);msg='You recovered. Energy restored.'}h.coachTrust=Math.min(100,h.coachTrust);h.fallCampScore=Math.min(100,h.fallCampScore);document.getElementById('campEnergy').textContent=h.energy;document.getElementById('campTrust').textContent=h.coachTrust;document.getElementById('campScore').textContent=h.fallCampScore;document.getElementById('campLog').innerHTML=msg}
+function finishCamp(){const h=careerData.highSchool;const player=careerData.player;const score=h.fallCampScore+Math.floor((h.coachTrust-50)/2)+Math.floor(player.attributes['Football IQ']/10);h.fallCampScore=Math.min(100,score);if(h.fallCampScore>=75){h.level='Varsity';h.varsityPromotion=true;h.coachTrust=Math.min(100,h.coachTrust+10);alert('🔥 FALL CAMP RESULT: You earned a varsity roster spot! You may still have to earn a starting role.')}else{h.level='JV';alert('FALL CAMP RESULT: You remain on JV. You must play the full season unless you earn a promotion during the season.')}h.fallCampComplete=true;h.energy=100;localStorage.setItem('footballLegacyCareer',JSON.stringify(careerData));renderCareerHome()}
+function renderCareerHome(){const p=careerData.player,s=careerData.school,c=careerData.coach,h=careerData.highSchool;document.querySelector('.container').innerHTML=`<div class="page-title">${p.firstName} ${p.lastName}</div><div class="subtitle">${h.classYear} • ${h.level} • ${p.position} • ${s.name}</div><div class="creation-panel"><div class="rating-box"><div class="starting-overall">OVERALL <strong>60</strong></div><p>${p.archetype} • ${p.height} • ${p.weight} lbs • #${p.jersey}</p></div><h2>SEASON</h2><div class="stat-grid"><div class="stat-card"><span>YEAR</span>${h.classYear}</div><div class="stat-card"><span>WEEK</span>${h.week}/10</div><div class="stat-card"><span>LEVEL</span>${h.level}</div><div class="stat-card"><span>ENERGY</span>${h.energy}/100</div><div class="stat-card"><span>VARSITY GAMES</span>${h.varsityGames}</div><div class="stat-card"><span>FILM</span>${h.film} snaps</div><div class="stat-card"><span>COACH TRUST</span>${h.coachTrust}/100</div><div class="stat-card"><span>POTENTIAL POINTS</span>${h.potentialPoints}</div></div><h2>OFF-FIELD DEVELOPMENT</h2><div class="activity-grid"><div class="activity-card"><h3>🎥 Film Room</h3><p>Prepare for the week. Better preparation improves your simulated performance.</p><button class="menu-button" onclick="weeklyActivity('film')">FILM • 20 ENERGY</button></div><div class="activity-card"><h3>🏈 Field Work</h3><p>Train your position with a chance for a random attribute breakthrough.</p><button class="menu-button" onclick="weeklyActivity('field')">FIELD • 30 ENERGY</button></div><div class="activity-card"><h3>🏋️ Weight Room</h3><p>Physical development with a random chance of improvement.</p><button class="menu-button" onclick="weeklyActivity('weight')">WEIGHTS • 30 ENERGY</button></div><div class="activity-card"><h3>🧠 Recovery</h3><p>Recover energy before the next simulated week.</p><button class="menu-button" onclick="weeklyActivity('recovery')">RECOVER • 15 ENERGY</button></div></div><div id="weeklyLog" class="result">${h.week===0?'Your first varsity/JV season week has not started yet.':`Week ${h.week} is ready.`}</div><button class="menu-button" onclick="advanceWeek()">SIMULATE NEXT WEEK</button><button class="back-button" onclick="viewPlayer()">PLAYER PROFILE</button></div>`}
+function weeklyActivity(type){const h=careerData.highSchool;if(h.week===0){h.week=1}const cost={film:20,field:30,weight:30,recovery:15}[type];if(h.energy<cost){alert('Not enough energy.');return}h.energy-=cost;let msg='';if(type==='film'){h.coachTrust=Math.min(100,h.coachTrust+randomInt(1,5));msg='Film study complete. Coach Trust improved.'}else if(type==='field'){const gain=Math.random()<.55?1:0;if(gain){const k=pick(['Speed','Acceleration','Agility','Technique','Awareness','Football IQ']);careerData.player.attributes[k]=Math.min(99,careerData.player.attributes[k]+1);msg=`Field work breakthrough: <span class="success">${k} +1</span>`}else msg='Good field session. No attribute breakthrough.'}else if(type==='weight'){const gain=Math.random()<.55?1:0;if(gain){const k=pick(['Strength','Power','Toughness','Stamina']);careerData.player.attributes[k]=Math.min(99,careerData.player.attributes[k]+1);msg=`Weight-room breakthrough: <span class="success">${k} +1</span>`}else msg='Good lift. No attribute breakthrough.'}else{h.energy=Math.min(100,h.energy+20);msg='Recovery complete. Energy restored.'}document.getElementById('weeklyLog').innerHTML=msg;localStorage.setItem('footballLegacyCareer',JSON.stringify(careerData));renderCareerHome()}
+function advanceWeek(){const h=careerData.highSchool;if(h.week===0)h.week=1;if(h.week>10){alert('This season is already complete.');return}h.gamesPlayed++;const started=h.level==='Varsity'&&Math.random()<.42;const snaps=started?randomInt(18,65):randomInt(0,28);h.snapCounts+=snaps;if(h.level==='Varsity'){h.varsityGames++;h.film+=snaps}if(h.level==='JV'&&h.week>=3&&Math.random()<.18&&h.coachTrust>=65){h.level='Varsity';h.varsityPromotion=true;alert('📈 MID-SEASON PROMOTION: Your performance earned a varsity promotion!')}h.confidence=Math.max(0,Math.min(100,h.confidence+randomInt(-2,5)));h.energy=100;h.week++;if(h.week>10){h.seasonComplete=true;finishSeason();return}localStorage.setItem('footballLegacyCareer',JSON.stringify(careerData));renderCareerHome()}
+function finishSeason(){const h=careerData.highSchool;if(h.classYear==='Senior'&&h.varsityGames<5){h.careerAlive=false;localStorage.removeItem('footballLegacyCareer');document.querySelector('.container').innerHTML=`<div class="page-title">CAREER OVER</div><div class="subtitle">You did not build enough varsity film.</div><div class="creation-panel"><div class="notice"><p><b>High School Film Requirement:</b> You needed at least 5 varsity games by the end of senior year.</p><p class="danger">You did not have enough film to continue your career.</p><p>Your career must be restarted.</p></div><button class="menu-button" onclick="startCareer()">RESTART CAREER</button></div>`;return}if(h.level==='JV'&&h.classYear!=='Senior'){alert('Season complete. You remained on JV and must continue building your career next year.')}if(h.classYear==='Senior'&&h.level==='JV'){h.level='Varsity';h.varsityPromotion=true;alert('Senior Rule: You have been placed on varsity automatically. You may or may not start, so you still need to earn film.')}h.seasonComplete=false;h.week=0;h.energy=100;localStorage.setItem('footballLegacyCareer',JSON.stringify(careerData));renderCareerHome()}
+function viewPlayer(){const p=careerData.player,h=careerData.highSchool;document.querySelector('.container').innerHTML=`<div class="page-title">PLAYER</div><div class="subtitle">Career Profile</div><div class="creation-panel"><div class="stat-grid"><div class="stat-card"><span>NAME</span>${p.firstName} ${p.lastName}</div><div class="stat-card"><span>POSITION</span>${p.position}</div><div class="stat-card"><span>CLASS</span>${h.classYear}</div><div class="stat-card"><span>LEVEL</span>${h.level}</div><div class="stat-card"><span>VARSITY GAMES</span>${h.varsityGames}</div><div class="stat-card"><span>FILM SNAPS</span>${h.film}</div></div><h2>ATTRIBUTES</h2><div class="attribute-grid">${Object.entries(p.attributes).map(([k,v])=>`<div class="attribute-card"><strong>${k}</strong><div class="attribute-value"><b>${v}</b></div></div>`).join('')}</div><button class="back-button" onclick="renderCareerHome()">← BACK TO CAREER</button></div>`}
+function loadCareer(){const saved=localStorage.getItem('footballLegacyCareer');if(!saved){alert('No saved career found yet.');return}careerData=JSON.parse(saved);renderCareerHome()}
+function settings(){alert('Settings will include play-by-play highlight color and other career options.')}
 </script>
 </body>
 </html>
