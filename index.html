@@ -5,7 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Football Legacy</title>
+/* PLAYER CREATION */
 
+.creation-panel {
+    background: #151c26;
+    border: 1px solid #354151;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.creation-panel h2 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #dce3ec;
+    border-bottom: 1px solid #303b49;
+    padding-bottom: 8px;
+}
+
+.creation-panel h2:first-child {
+    margin-top: 0;
+}
+
+.creation-panel label {
+    display: block;
+    margin-top: 13px;
+    margin-bottom: 6px;
+    color: #aeb8c6;
+    font-size: 14px;
+}
+
+.creation-panel input,
+.creation-panel select {
+    width: 100%;
+    padding: 12px;
+    background: #0e141c;
+    color: white;
+    border: 1px solid #394656;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.creation-panel input:focus,
+.creation-panel select:focus {
+    outline: none;
+    border-color: #718197;
+}
+
+.rating-box {
+    background: #0e141c;
+    border: 1px solid #303b49;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 10px;
+}
+
+.starting-overall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.starting-overall strong {
+    font-size: 36px;
+}
+
+.small-text {
+    color: #7f8b9b;
+    font-size: 13px;
+}
+
+.back-button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid #394656;
+    color: #aeb8c6;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #222b38;
+    color: white;
+}
 <style>
 
 * {
@@ -360,7 +448,188 @@ function settings() {
     alert("Settings — Coming Next");
 
 }
+const archetypes = {
 
+    QB: [
+        "Pocket Passer",
+        "Field General",
+        "Scrambler",
+        "Dual Threat"
+    ],
+
+    RB: [
+        "Power Back",
+        "Elusive Back",
+        "Receiving Back",
+        "Balanced Back"
+    ],
+
+    FB: [
+        "Blocking Back",
+        "Power Runner",
+        "Utility Back"
+    ],
+
+    WR: [
+        "Deep Threat",
+        "Route Technician",
+        "Possession Receiver",
+        "YAC Receiver"
+    ],
+
+    TE: [
+        "Vertical Threat",
+        "Blocking TE",
+        "Possession TE",
+        "Balanced TE"
+    ],
+
+    OT: [
+        "Pass Protector",
+        "Run Blocker",
+        "Athletic Tackle",
+        "Balanced Tackle"
+    ],
+
+    OG: [
+        "Power Guard",
+        "Pulling Guard",
+        "Pass Protector",
+        "Balanced Guard"
+    ],
+
+    C: [
+        "Power Center",
+        "Field General",
+        "Pass Protector",
+        "Balanced Center"
+    ],
+
+    EDGE: [
+        "Speed Rusher",
+        "Power Rusher",
+        "Run Defender",
+        "Complete Edge"
+    ],
+
+    DT: [
+        "Run Stuffer",
+        "Power Rusher",
+        "Interior Pass Rusher",
+        "Balanced DT"
+    ],
+
+    "Mike LB": [
+        "Run Stopper",
+        "Field General",
+        "Blitzing Linebacker",
+        "Balanced Mike"
+    ],
+
+    "Sam LB": [
+        "Edge Setter",
+        "Coverage Linebacker",
+        "Blitzer",
+        "Balanced Sam"
+    ],
+
+    "Will LB": [
+        "Coverage Specialist",
+        "Speed Linebacker",
+        "Blitzer",
+        "Balanced Will"
+    ],
+
+    CB: [
+        "Man Coverage",
+        "Zone Corner",
+        "Press Corner",
+        "Ball Hawk"
+    ],
+
+    FS: [
+        "Center Fielder",
+        "Ball Hawk",
+        "Zone Safety",
+        "Balanced Free Safety"
+    ],
+
+    SS: [
+        "Box Safety",
+        "Enforcer",
+        "Man Safety",
+        "Balanced Strong Safety"
+    ],
+
+    K: [
+        "Power Kicker",
+        "Accuracy Kicker",
+        "Clutch Kicker"
+    ],
+
+    P: [
+        "Power Punter",
+        "Precision Punter",
+        "Directional Punter"
+    ]
+
+};
+
+
+function updatePosition() {
+
+    const position =
+        document.getElementById("position").value;
+
+    const archetypeSelect =
+        document.getElementById("archetype");
+
+    archetypeSelect.innerHTML = "";
+
+    if (position === "RANDOM") {
+
+        const positions = Object.keys(archetypes);
+
+        const randomPosition =
+            positions[
+                Math.floor(Math.random() * positions.length)
+            ];
+
+        document.getElementById("position").value =
+            randomPosition;
+
+        updatePosition();
+
+        return;
+    }
+
+    if (!archetypes[position]) {
+
+        const option =
+            document.createElement("option");
+
+        option.textContent =
+            "Select a position first";
+
+        archetypeSelect.appendChild(option);
+
+        return;
+    }
+
+    archetypes[position].forEach(function(archetype) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = archetype;
+
+        option.textContent = archetype;
+
+        archetypeSelect.appendChild(option);
+
+    });
+
+}
 </script>
 
 </body>
